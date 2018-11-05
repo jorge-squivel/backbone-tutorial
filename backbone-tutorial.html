@@ -22,6 +22,9 @@
   <!-- Javascript code -->
   <!-- =============== -->
   <script type="text/javascript">
+
+  /* First Commit
+
     var AppView = Backbone.View.extend({
       // el - stands for element. Every view has a element associate in with HTML
       //      content will be rendered.
@@ -34,6 +37,20 @@
       //       to push content. Like the Hello World in this case.
       render: function(){
         this.$el.html("Hello World");
+      }
+    });
+  */
+  
+    var AppView = Backbone.View.extend({
+      el: $('#container'),
+      // template which has the placeholder 'who' to be substituted later
+      template: _.template("<h3>Hello <%= who %></h3>"),
+      initialize: function(){
+        this.render();
+      },
+      render: function(){
+        //render the function using substituing the variable 'who' for 'world!'.
+        this.$el.html(this.template({who: 'world!'}));
       }
     });
 
